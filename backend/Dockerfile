@@ -9,6 +9,9 @@ COPY . .
 
 RUN npm i
 
+#test
+RUN npm run test
+
 #stage2:
 FROM node:24-slim
 #setup working directory
