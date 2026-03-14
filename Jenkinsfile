@@ -43,6 +43,18 @@ pipeline {
                 """
             }
         }
+	stage("seed mongodb data"){
+    	    steps{
+                 sh """
+        	sleep 10
+        	docker exec mongo mongoimport \
+        	--db wanderlust \
+        	--collection posts \
+        	--file /data/sample_posts.json \
+        	--jsonArray || true
+        	"""
+    	    }
+        }       
     }
 }
 
